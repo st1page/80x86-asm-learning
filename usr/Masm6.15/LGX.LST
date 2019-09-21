@@ -1,0 +1,63 @@
+Microsoft (R) Macro Assembler Version 7.10.3077		    09/15/03 18:41:35
+lgx.asm							     Page 1 - 1
+
+
+				.MODEL tiny
+ 0000				.CODE
+
+				ORG 100h
+
+ 0100				Start:
+				     
+ 0100  EB 12			     jmp lgxx
+
+
+ 0102 48 65 6C 6C 6F 20		Msg DB 'Hello LiGuoXiong!$'
+       4C 69 47 75 6F 58
+       69 6F 6E 67 21 24
+				  
+
+ 0114				lgxx:  
+ 0114  BA 0102 R		  MOV DX,OFFSET Msg
+				   
+ 0117  B4 09			  MOV AH,9
+ 0119  CD 21			  INT 21h
+
+				  .EXIT ;DOS Exit                    
+
+				END Start
+lgx.asm(22) : warning A4023: with /coff switch, leading underscore required for start address : Start
+				  
+Microsoft (R) Macro Assembler Version 7.10.3077		    09/15/03 18:41:35
+lgx.asm							     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+_DATA  . . . . . . . . . . . . .	16 Bit	 0000	  Word	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	16 Bit	 011F	  Word	  Public  'CODE'	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 0000h	 
+@DataSize  . . . . . . . . . . .	Number	 0000h	 
+@Interface . . . . . . . . . . .	Number	 0000h	 
+@Model . . . . . . . . . . . . .	Number	 0001h	 
+@code  . . . . . . . . . . . . .	Text   	 DGROUP
+@data  . . . . . . . . . . . . .	Text   	 DGROUP
+@fardata?  . . . . . . . . . . .	Text   	 FAR_BSS
+@fardata . . . . . . . . . . . .	Text   	 FAR_DATA
+@stack . . . . . . . . . . . . .	Text   	 DGROUP
+Msg  . . . . . . . . . . . . . .	Byte	 0102	  _TEXT	
+Start  . . . . . . . . . . . . .	L Near	 0100	  _TEXT	Public
+lgxx . . . . . . . . . . . . . .	L Near	 0114	  _TEXT	
+
+	   1 Warnings
+	   0 Errors

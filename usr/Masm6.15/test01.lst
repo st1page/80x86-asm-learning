@@ -1,0 +1,64 @@
+Microsoft (R) Macro Assembler Version 7.10.3077		    09/24/03 08:45:38
+test01.asm						     Page 1 - 1
+
+
+				 
+				.MODEL SMALL
+
+				.386
+
+ 0000				.DATA
+				  
+ 0000 48 65 6C 6C 6F 20		  Msg DB 'Hello Àî¹úÐÛ!$'
+       C0 EE B9 FA D0 DB
+       21 24
+
+ 0000				.CODE
+
+ 0000				 Start:
+				  MOV AX,@data
+test01.asm(13) : error A2006: undefined symbol : DGROUP
+ 0000  8E D8			  MOV DS,AX
+ 0002  BA 0000 R		  MOV DX,OFFSET Msg
+
+ 0005  B4 09			  MOV AH,9
+ 0007  CD 21			  INT 21h
+
+ 0009  B4 4C			  MOV  AH,4ch                 ;DOS terminate program function
+ 000B  CD 21			  INT  21h                    
+
+				END Start
+test01.asm(23) : warning A4023: with /coff switch, leading underscore required for start address : Start
+				  
+Microsoft (R) Macro Assembler Version 7.10.3077		    09/24/03 08:45:38
+test01.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+_DATA  . . . . . . . . . . . . .	16 Bit	 000E	  Word	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	16 Bit	 0018	  Word	  Public  'CODE'	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 0000h	 
+@DataSize  . . . . . . . . . . .	Number	 0000h	 
+@Interface . . . . . . . . . . .	Number	 0000h	 
+@Model . . . . . . . . . . . . .	Number	 0002h	 
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 DGROUP
+@fardata?  . . . . . . . . . . .	Text   	 FAR_BSS
+@fardata . . . . . . . . . . . .	Text   	 FAR_DATA
+@stack . . . . . . . . . . . . .	Text   	 DGROUP
+Msg  . . . . . . . . . . . . . .	Byte	 0000	  _DATA	
+Start  . . . . . . . . . . . . .	L Near	 0000	  _TEXT	Public
+
+	   1 Warnings
+	   1 Errors

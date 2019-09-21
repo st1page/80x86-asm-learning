@@ -1,0 +1,22 @@
+.model small
+.code
+
+Start:
+  mov ax,@data
+  mov ds,ax
+  mov dx,OFFSET Msg
+
+  mov ah,9
+  int 21h
+
+  mov ah,4ch
+  int 21h
+
+.DATA
+
+  Msg db 'Hello LiGuoXiong!$'
+
+.STACK
+
+END Start
+
