@@ -140,13 +140,13 @@ judge:
     cmp al, 90
 	jge outlevel
     inc dl
-	cmp ax, 80
+	cmp al, 80
 	jge outlevel
     inc dl
-	cmp ax, 70
+	cmp al, 70
 	jge outlevel
     inc dl
-	cmp ax, 60
+	cmp al, 60
 	jge outlevel
     add dl, 2
 outlevel:

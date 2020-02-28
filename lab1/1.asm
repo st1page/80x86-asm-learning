@@ -24,7 +24,7 @@ match:
 disp:
     mov ah,09
     int 21h
-    mov ax 4c00h
+    mov ax,4c00h
     int 21h;
 main endp
 prognam ends
